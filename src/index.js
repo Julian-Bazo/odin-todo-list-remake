@@ -1,9 +1,13 @@
 import "./styles.css";
 
 import Task from "./task.js";
+import List from "./list.js";
 
-const task1 = new Task("Get eggs");
-task1.dueDate = "04/32"
-task1.urgency = "true";
+const newList = new List("Standard List");
+newList.addTask("Grab eggs");
+newList.addTask("Buy some fish");
 
-console.table(task1);
+
+console.table(newList);
+newList.showTasks();
+newList.selectTask(1);

@@ -1,9 +1,6 @@
 export default class Task {
     constructor(name, dueDate, desc, urgency) {
         this.name = name;
-        // this.dueDate = dueDate;
-        // this.desc = desc;
-        // this.urgency = urgency;
     }
 
     get name() {
