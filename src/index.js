@@ -2,9 +2,9 @@ import "./styles.css";
 
 import Task from "./task.js";
 import List from "./list.js";
-import createModal from "./modal.js";
+import "./modal.js";
+import { createTaskButton } from "./modal.js";
 
-createModal();
 
 // Reminder on setters and getters
 // const sampleTask = new Task("Tutorial");

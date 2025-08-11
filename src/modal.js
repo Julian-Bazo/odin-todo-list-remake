@@ -1,65 +1,112 @@
-
-export default function createModal() {
-
 const sidebar = document.querySelector(".sidebar");
 
-const createButton = document.createElement("button");
-createButton.textContent = "Create List";
-sidebar.appendChild(createButton);
+const createListButton = document.createElement("button");
+createListButton.textContent = "Create List";
+sidebar.appendChild(createListButton);
 
-createButton.addEventListener("click", () => {
-    modal.style.display = "block";
+const createTaskButton = document.createElement("button");
+createTaskButton.textContent = "Create Task";
+sidebar.appendChild(createTaskButton);
+
+createTaskButton.addEventListener("click", () => {
+    taskModal.style.display = "block";
 })
 
-const modal = document.createElement("div");
-modal.classList.add("modal");
-sidebar.appendChild(modal);
+createListButton.addEventListener("click", () => {
+    listModal.style.display = "block";
+})
 
-const modalContent = document.createElement("div");
-modal.appendChild(modalContent);
-modalContent.textContent = "Placeholder modal content";
+const taskModal = document.createElement("div");
+taskModal.classList.add("task-modal");
+taskModal.classList.add("modal");
+sidebar.appendChild(taskModal);
 
-const closeButton = document.createElement("button");
-closeButton.textContent = "X";
-modalContent.appendChild(closeButton);
+const listModal = document.createElement("div");
+listModal.classList.add("list-modal");
+listModal.classList.add("modal");
+sidebar.appendChild(listModal);
 
-const inputForm = document.createElement("form");
-modalContent.appendChild(inputForm);
+const listModalContent = document.createElement("div");
+listModal.appendChild(listModalContent);
+listModalContent.textContent = "Placeholder modal content";
+
+const closeListModalButton = document.createElement("button");
+closeListModalButton.textContent = "X";
+listModalContent.appendChild(closeListModalButton);
+
+const inputListForm = document.createElement("form");
+listModalContent.appendChild(inputListForm);
+
+const inputTitle = document.createElement("input");
+inputTitle.type = "text";
+inputTitle.id = "title";
+inputTitle.placeholder = "List title";
+inputListForm.appendChild(inputTitle);
+
+const submitListButton = document.createElement("button");
+submitListButton.type = "button";
+submitListButton.textContent = "Submit";
+inputListForm.appendChild(submitListButton);
+
+const resetListButton = document.createElement("button");
+resetListButton.type = "reset";
+resetListButton.style.display = "none";
+inputListForm.appendChild(resetListButton);
+
+submitListButton.addEventListener("click", () => {
+    let titleData = inputTitle.value;
+
+    console.log(`Title: ${titleData}`);
+
+    resetListButton.click();
+})
+
+
+const taskModalContent = document.createElement("div");
+taskModal.appendChild(taskModalContent);
+taskModalContent.textContent = "Placeholder modal content";
+
+const closeTaskModalButton = document.createElement("button");
+closeTaskModalButton.textContent = "X";
+taskModalContent.appendChild(closeTaskModalButton);
+
+const inputTaskForm = document.createElement("form");
+taskModalContent.appendChild(inputTaskForm);
 
 const nameInput = document.createElement("input");
 nameInput.type = "text";
 nameInput.id = "name";
 nameInput.placeholder = "Task name";
-inputForm.appendChild(nameInput);
+inputTaskForm.appendChild(nameInput);
 
 const dateInput = document.createElement("input");
 dateInput.type = "date";
 dateInput.id = "date";
-inputForm.appendChild(dateInput);
+inputTaskForm.appendChild(dateInput);
 
 const descInput = document.createElement("textarea");
 descInput.id = "desc";
 descInput.rows = "2";
 descInput.cols = "33";
 descInput.placeholder = "Task description...";
-inputForm.appendChild(descInput);
+inputTaskForm.appendChild(descInput);
 
 const urgencyInput = document.createElement("input");
 urgencyInput.type = "checkbox";
 urgencyInput.id = "urgency";
-inputForm.appendChild(urgencyInput);
+inputTaskForm.appendChild(urgencyInput);
 
-const submitButton = document.createElement("button");
-submitButton.type = "button";
-submitButton.textContent = "Add Task";
-inputForm.appendChild(submitButton)
+const submitTaskButton = document.createElement("button");
+submitTaskButton.type = "button";
+submitTaskButton.textContent = "Add Task";
+inputTaskForm.appendChild(submitTaskButton)
 
-const resetButton = document.createElement("button");
-resetButton.type = "reset";
-resetButton.textContent = "Clear Task"
-inputForm.appendChild(resetButton);
+const resetTaskButton = document.createElement("button");
+resetTaskButton.type = "reset";
+resetTaskButton.textContent = "Clear Task"
+inputTaskForm.appendChild(resetTaskButton);
 
-submitButton.addEventListener("click", () => {
+submitTaskButton.addEventListener("click", () => {
     let nameData = nameInput.value;
     let dateData = dateInput.value;
     dateData = dateData.slice(5);
@@ -70,12 +117,17 @@ submitButton.addEventListener("click", () => {
     console.log(`Date: ${dateData}`);
     console.log(`Desc: ${descData}`);
     console.log(`Urgency: ${urgencyData}`);
+
+    resetTaskButton.click();
 })
 
 
-closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
+closeTaskModalButton.addEventListener("click", () => {
+    taskModal.style.display = "none";
 })
 
-createButton.click();
-}
+closeListModalButton.addEventListener("click", () => {
+    listModal.style.display = "none";
+})
+
+export {createTaskButton};
