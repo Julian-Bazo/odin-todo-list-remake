@@ -1,3 +1,26 @@
-* {
-    background-color: #eee;
+html, body {
+    margin: 0;
+    height: 100%;
 }
+
+body {
+    display: grid;
+    grid: 2fr 12fr/ 2fr 6fr;
+    margin: 0;
+}
+
+.header {
+    background-color: rgb(244, 157, 157);
+    grid-column: 1 / -1;
+}
+
+.sidebar {
+    background-color: rgb(110, 110, 255);
+}
+
+.list {
+    background-color: rgb(250, 250, 149);
+}
+
+
+

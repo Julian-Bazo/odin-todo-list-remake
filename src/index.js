@@ -18,8 +18,9 @@ console.table(newList);
 newList.showTasks();
 newList.editTask(1, "name", "No more eggs");
 newList.editTask(2, "date", "4/20");
-newList.editTask(2, "urgency", "true");
+newList.editTask(2, "urgency", "false");
 newList.editTask(2, "describe", "A sample description");
+console.log(`Data: ${newList.data}`);
 // newList.editTask(1, "delete");
 
 newList.showTasks();
