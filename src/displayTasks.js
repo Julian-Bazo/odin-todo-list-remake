@@ -30,6 +30,9 @@ export default function displayTasks(list) {
         descSection.textContent = `${task.desc}`;
         console.log(task.desc);
         console.log(task.urgency);
+        if (task.urgency === "true") {
+            wholeTask.classList.add("urgent");
+        }
         wholeTask.appendChild(descSection);
 
     }
