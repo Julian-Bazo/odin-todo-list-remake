@@ -1,3 +1,4 @@
+import displayTasks from "./displayTasks";
 import List from "./list";
 import Task from "./task";
 
@@ -60,6 +61,7 @@ inputListForm.appendChild(resetListButton);
 
 let titleData;
 let currentList;
+let projectArray = [];
 
 
 submitListButton.addEventListener("click", () => {
@@ -68,7 +70,9 @@ submitListButton.addEventListener("click", () => {
     const newProj = document.createElement("div");
     newProj.textContent = titleData;
     sidebar.appendChild(newProj);
+    // newProj.addEventListener("click", )
     const newList = new List(`${titleData}`);
+    projectArray.push(newList);
     console.log(newList);
 
     createTaskButton.style.display = "block";
@@ -76,10 +80,19 @@ submitListButton.addEventListener("click", () => {
 
     currentList = newList;
 
+    newProj.addEventListener("click", displayTasks(newList));
 
+    newProj.addEventListener("click", () => {
+        let value = projectArray.map((list) => {return list.name}).indexOf(`${newProj.textContent}`);
+        console.log("I was clicked!");
+        console.log(`Value: ${value}`);
+        currentList = projectArray[value];
+        console.log(`Current: ${typeof currentList}`);
+        displayTasks(newList);
+    })
+    
     resetListButton.click();
     closeListModalButton.click();
-    return newList;
 })
 
 
@@ -139,31 +152,11 @@ submitTaskButton.addEventListener("click", () => {
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
 
-    const wholeTask = document.createElement("div");
-    list.appendChild(wholeTask);
-    wholeTask.classList.add("whole-task");
-    const nameSection = document.createElement("div");
-    nameSection.textContent = `${nameData}`;
-    wholeTask.appendChild(nameSection);
-    const dateSection = document.createElement("div");
-    dateSection.textContent = `${dateData}`;
-    wholeTask.appendChild(dateSection);
-    const descSection = document.createElement("div");
-    descSection.textContent = `${descData}`;
-    wholeTask.appendChild(descSection);
-
-    
-    if (urgencyData === true) {
-        wholeTask.classList.add("urgent");
-    }
-
     currentList.addTask(`${nameData}`, `${dateData}`, `${descData}`, `${urgencyData}`);
-    currentList.showTasks();
 
-    console.log(`Name: ${nameData}`);
-    console.log(`Date: ${dateData}`);
-    console.log(`Desc: ${descData}`);
-    console.log(`Urgency: ${urgencyData}`);
+    displayTasks(currentList);
+    
+    console.log(`${currentList.name}`);
 
     resetTaskButton.click();
 })
@@ -177,4 +170,4 @@ closeListModalButton.addEventListener("click", () => {
     listModal.style.display = "none";
 })
 
-export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData};
+export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list};

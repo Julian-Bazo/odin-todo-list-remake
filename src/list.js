@@ -15,10 +15,13 @@ export default class List {
         if (desc === "") {
             newTask.desc = `Add extra information here`;
         }
+        if (desc !== "") {
+            newTask.desc = `${desc}`;
+        }
         if (urgency !== undefined) {
             newTask.urgency = `${urgency}`;
         }
-        console.log(`New task made: ${newTask.name}, ${newTask.dueDate}`);
+        console.log(`New task made: ${newTask.name}, ${newTask.dueDate}, ${newTask.desc}`);
         this.data.push(newTask);
     }
 
