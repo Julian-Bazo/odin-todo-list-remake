@@ -9,8 +9,14 @@ export default class List {
 
     addTask(name, dueDate, desc, urgency) {
         const newTask = new Task(`${name}`);
+        if (name === "") {
+            newTask.name = 'Add a name'
+        }
         if (dueDate !== undefined) {
         newTask.dueDate = `${dueDate}`;
+        }
+        if (dueDate === ``) {
+            newTask.dueDate = `Anytime`
         }
         if (desc === "") {
             newTask.desc = `Add extra information here`;
