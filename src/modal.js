@@ -67,9 +67,17 @@ let currentList = projectArray[0];
 submitListButton.addEventListener("click", () => {
     titleData = inputTitle.value;
 
+    const wholeItem = document.createElement('div');
+    wholeItem.classList.add("sidebar-item");
+    sidebar.appendChild(wholeItem);
+
     const newProj = document.createElement("div");
     newProj.textContent = titleData;
-    sidebar.appendChild(newProj);
+    newProj.classList.add("sidebar-item");
+    wholeItem.appendChild(newProj);
+    const deleteButton = document.createElement("div");
+    deleteButton.classList.add("delete-button");
+    wholeItem.appendChild(deleteButton);
     // newProj.addEventListener("click", )
     const newList = new List(`${titleData}`);
     projectArray.push(newList);

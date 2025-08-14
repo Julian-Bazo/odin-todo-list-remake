@@ -45,3 +45,11 @@ body {
     color: red;
 }
 
+.delete-button {
+    content: url(/imgs/delete-icon.svg);
+}
+
+.sidebar-item {
+    display: flex;
+    gap:2rem;
+}

@@ -8,6 +8,8 @@ export default function displayTasks(list) {
     clearContent();
 
     // Displaying array information
+
+    if (list.data !== null) {
     for (const task of list.data) {
         const wholeTask = document.createElement("div");
         
@@ -27,6 +29,7 @@ export default function displayTasks(list) {
         wholeTask.appendChild(descSection);
 
     }
+}
 
 
 }

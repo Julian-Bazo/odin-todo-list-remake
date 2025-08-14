@@ -2,10 +2,21 @@ import List from "./list";
 import displayTasks from "./displayTasks";
 import { sidebar } from "./modal";
 import { projectArray, currentList } from "./modal";
+import clearContent from "./clearContent";
+
+
+const wholeItem = document.createElement("div");
+wholeItem.classList.add("sidebar-item");
+sidebar.appendChild(wholeItem);
 
 const defaultTitleSidebar = document.createElement("div");
 defaultTitleSidebar.textContent = `Default`;
-sidebar.appendChild(defaultTitleSidebar);
+wholeItem.appendChild(defaultTitleSidebar);
+
+const deleteButton = document.createElement("div");
+deleteButton.classList.add("delete-button");
+wholeItem.appendChild(deleteButton);
+
 
 export default function createDefaultList() {
     const domTest = new List("Default");
@@ -24,3 +35,13 @@ export default function createDefaultList() {
     
     displayTasks(domTest);
 }
+
+deleteButton.addEventListener("click", () => {
+    clearContent();
+    console.log(projectArray);
+    projectArray[0].data = null;
+
+    while (wholeItem.firstChild){
+        wholeItem.removeChild(wholeItem.lastChild);
+    }
+})
