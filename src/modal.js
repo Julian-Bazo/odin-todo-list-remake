@@ -60,8 +60,8 @@ resetListButton.style.display = "none";
 inputListForm.appendChild(resetListButton);
 
 let titleData;
-let currentList;
 let projectArray = [];
+let currentList = projectArray[0];
 
 
 submitListButton.addEventListener("click", () => {
@@ -80,8 +80,6 @@ submitListButton.addEventListener("click", () => {
 
     currentList = newList;
 
-    newProj.addEventListener("click", displayTasks(newList));
-
     newProj.addEventListener("click", () => {
         let value = projectArray.map((list) => {return list.name}).indexOf(`${newProj.textContent}`);
         console.log("I was clicked!");
@@ -90,6 +88,7 @@ submitListButton.addEventListener("click", () => {
         console.log(`Current: ${typeof currentList}`);
         displayTasks(newList);
     })
+    // Has something to do with this ^^
     
     resetListButton.click();
     closeListModalButton.click();
@@ -170,4 +169,4 @@ closeListModalButton.addEventListener("click", () => {
     listModal.style.display = "none";
 })
 
-export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list};
+export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list, sidebar, projectArray, currentList};
