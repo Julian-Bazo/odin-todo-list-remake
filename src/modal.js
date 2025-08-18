@@ -1,6 +1,7 @@
 import displayTasks from "./displayTasks";
 import List from "./list";
 import Task from "./task";
+import clearContent from "./clearContent";
 
 const sidebar = document.querySelector(".sidebar");
 const list = document.querySelector(".list");
@@ -88,6 +89,21 @@ submitListButton.addEventListener("click", () => {
 
     currentList = newList;
 
+    deleteButton.addEventListener("click", () => {
+        clearContent();
+        let value = projectArray.map((list) => {return list.name}).indexOf(`${newProj.textContent}`);
+        console.log(projectArray);
+        projectArray[value].data = null;
+        projectArray.splice(value, 1);
+        console.log(projectArray);
+        // currentList = projectArray[0];
+        createTaskButton.style.display = "none";
+
+        while (wholeItem.firstChild){
+            wholeItem.removeChild(wholeItem.lastChild);
+        }
+    })
+
     newProj.addEventListener("click", () => {
         let value = projectArray.map((list) => {return list.name}).indexOf(`${newProj.textContent}`);
         console.log("I was clicked!");
@@ -95,6 +111,7 @@ submitListButton.addEventListener("click", () => {
         currentList = projectArray[value];
         console.log(`Current: ${typeof currentList}`);
         displayTasks(newList);
+        createTaskButton.style.display = "block";
     })
     // Has something to do with this ^^
     
@@ -158,6 +175,7 @@ submitTaskButton.addEventListener("click", () => {
     dateData = dateData.slice(5);
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
+
 
     currentList.addTask(`${nameData}`, `${dateData}`, `${descData}`, `${urgencyData}`);
 

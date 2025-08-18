@@ -28,7 +28,9 @@ export default class List {
             newTask.urgency = `${urgency}`;
         }
         console.log(`New task made: ${newTask.name}, ${newTask.dueDate}, ${newTask.desc}`);
+        if (this.data !== null){
         this.data.push(newTask);
+        }
     }
 
     showTasks () {

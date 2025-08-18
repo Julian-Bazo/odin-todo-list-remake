@@ -1,9 +1,8 @@
 import List from "./list";
 import displayTasks from "./displayTasks";
 import { sidebar } from "./modal";
-import { projectArray, currentList } from "./modal";
+import { projectArray, currentList, createTaskButton } from "./modal";
 import clearContent from "./clearContent";
-
 
 const wholeItem = document.createElement("div");
 wholeItem.classList.add("sidebar-item");
@@ -11,6 +10,7 @@ sidebar.appendChild(wholeItem);
 
 const defaultTitleSidebar = document.createElement("div");
 defaultTitleSidebar.textContent = `Default`;
+defaultTitleSidebar.classList.add("default");
 wholeItem.appendChild(defaultTitleSidebar);
 
 const deleteButton = document.createElement("div");
@@ -31,6 +31,7 @@ export default function createDefaultList() {
         console.log(`Default was clicked!`);
         console.log(`Value: ${value}`);
         displayTasks(domTest);
+        createTaskButton.style.display = "block";
     });
     
     displayTasks(domTest);
@@ -40,8 +41,14 @@ deleteButton.addEventListener("click", () => {
     clearContent();
     console.log(projectArray);
     projectArray[0].data = null;
+    projectArray.splice(0, 1);
+    console.log(projectArray);
+    createTaskButton.style.display = "none";
+
 
     while (wholeItem.firstChild){
         wholeItem.removeChild(wholeItem.lastChild);
     }
 })
+
+export {defaultTitleSidebar};

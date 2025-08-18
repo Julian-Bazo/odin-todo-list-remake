@@ -21,4 +21,9 @@ createDefaultList();
 
 // Figure out how to get default list to properly allow for adding tasks to it.
 
-// Currently the default list is not being selected on click
+// Try to wipe list title data to prevent permanently retired list names
+// Find a way to properly reset data on delete
+// When no list is selected the items are currently getting sent to the non-fully deleted list
+// Select an invisible trash list that pops values out as they get added?
+// List name bolded when selected
+// Hide task creation button on list delete
