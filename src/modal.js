@@ -176,6 +176,10 @@ submitTaskButton.addEventListener("click", () => {
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
 
+    if (currentList.data === null) {
+        currentList = projectArray[0];
+    }
+
 
     currentList.addTask(`${nameData}`, `${dateData}`, `${descData}`, `${urgencyData}`);
 
