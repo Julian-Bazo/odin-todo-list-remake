@@ -20,8 +20,8 @@ wholeItem.appendChild(deleteButton);
 
 export default function createDefaultList() {
     const domTest = new List("Default");
-    domTest.addTask("Go grab eggs", "04/25", "", "false");
-    domTest.addTask("Fishing day", "06/24", "Hello", "true");
+    domTest.addTask("Go grab eggs", "04/25", "Hover me to further see my description!", "false");
+    domTest.addTask("Fishing day", "06/24", "Make sure all gear is prepped", "true");
 
     projectArray.push(domTest);
 

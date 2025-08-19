@@ -74,7 +74,7 @@ submitListButton.addEventListener("click", () => {
 
     const newProj = document.createElement("div");
     newProj.textContent = titleData;
-    newProj.classList.add("sidebar-item");
+    newProj.classList.add("item-title");
     wholeItem.appendChild(newProj);
     const deleteButton = document.createElement("div");
     deleteButton.classList.add("delete-button");
@@ -118,7 +118,6 @@ submitListButton.addEventListener("click", () => {
     resetListButton.click();
     closeListModalButton.click();
 })
-
 
 const taskModalContent = document.createElement("div");
 taskModal.appendChild(taskModalContent);
