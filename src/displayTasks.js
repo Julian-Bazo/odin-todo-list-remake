@@ -85,9 +85,25 @@ export default function displayTasks(list) {
                 closeEditModalButton.click();
             })
 
-            // editSubmitButton.addEventListener("click", () => {
-
-            // })
+            editSubmitButton.addEventListener("click", () => {
+                if (editName.value !== "") {
+                    task.name = editName.value;
+                }
+                if (editDate.value !== "") {
+                    task.dueDate = editDate.value.slice(5);
+                }
+                if (editDesc.value !== "") {
+                    task.desc = editDesc.value;
+                }
+                if (editUrgency.checked === true) {
+                    task.urgency = "true";
+                }
+                if (editUrgency.checked === false) {
+                    task.urgency = "false";
+                }
+                displayTasks(list);
+                closeEditModalButton.click();
+            })
 
             const resetEditModal = document.createElement("button");
             resetEditModal.type = "reset";
