@@ -1,5 +1,5 @@
 import "./styles.css";
-
+import { formatDate } from "date-fns";
 import Task from "./task.js";
 import List from "./list.js";
 import "./modal.js";
@@ -21,5 +21,3 @@ createDefaultList();
 // Beautify App
 // Test local memory plugin
 // Test webkit development to production swap
-
-// Add a way to edit tasks

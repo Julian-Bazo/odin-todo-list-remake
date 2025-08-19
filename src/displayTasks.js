@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import clearContent from "./clearContent";
 
 
@@ -90,7 +91,7 @@ export default function displayTasks(list) {
                     task.name = editName.value;
                 }
                 if (editDate.value !== "") {
-                    task.dueDate = editDate.value.slice(5);
+                    task.dueDate = format(new Date(editDate.value), "MM/dd");
                 }
                 if (editDesc.value !== "") {
                     task.desc = editDesc.value;

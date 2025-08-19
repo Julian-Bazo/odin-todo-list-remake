@@ -2,6 +2,7 @@ import displayTasks from "./displayTasks";
 import List from "./list";
 import Task from "./task";
 import clearContent from "./clearContent";
+import { format } from "date-fns";
 
 const sidebar = document.querySelector(".sidebar");
 const list = document.querySelector(".list");
@@ -170,8 +171,10 @@ let urgencyData;
 
 submitTaskButton.addEventListener("click", () => {
     nameData = nameInput.value;
-    dateData = dateInput.value;
-    dateData = dateData.slice(5);
+    // dateData = dateInput.value;
+    // dateData = dateData.slice(5);
+    dateData = format(new Date(dateInput.value), "MM/dd");
+    console.log(dateData);
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
 
