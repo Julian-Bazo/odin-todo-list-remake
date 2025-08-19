@@ -27,11 +27,10 @@ export default function createDefaultList() {
 
     defaultTitleSidebar.addEventListener("click", () => {
         let value = projectArray.map((list) => {return list.name}).indexOf(`${defaultTitleSidebar.textContent}`);
-        // currentList = projectArray[value];
         console.log(`Default was clicked!`);
         console.log(`Value: ${value}`);
         displayTasks(domTest);
-        createTaskButton.style.display = "block";
+        // createTaskButton.style.display = "block";
     });
     
     displayTasks(domTest);

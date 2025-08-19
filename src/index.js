@@ -22,5 +22,4 @@ createDefaultList();
 // Test local memory plugin
 // Test webkit development to production swap
 
-// Add an overall edit button
-// Add a way to delete tasks
+// Add a way to edit tasks
