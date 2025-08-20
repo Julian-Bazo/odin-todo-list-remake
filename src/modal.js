@@ -173,7 +173,12 @@ submitTaskButton.addEventListener("click", () => {
     nameData = nameInput.value;
     // dateData = dateInput.value;
     // dateData = dateData.slice(5);
-    dateData = format(new Date(dateInput.value), "MM/dd");
+    if (dateInput.value !== "" && dateInput.value !== "Anytime") {
+        dateData = format(new Date(dateInput.value), "MM/dd");
+    }
+    else {
+        dateData = "Anytime";
+    }
     console.log(dateData);
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
