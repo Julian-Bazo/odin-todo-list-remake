@@ -114,12 +114,13 @@ export default function displayTasks(list) {
         })
 
         const nameSection = document.createElement("div");
-        nameSection.textContent = `${task.name}`;
+            nameSection.textContent = `${task._name}`;
+            itemData.appendChild(nameSection);
 
-        itemData.appendChild(nameSection);
         const dateSection = document.createElement("div");
-        dateSection.textContent = `${task.dueDate}`;
-        itemData.appendChild(dateSection);
+            dateSection.textContent = `${task._dueDate}`;
+            itemData.appendChild(dateSection);
+
         const descSection = document.createElement("div");
         descSection.classList.add("short-desc");
 
@@ -131,8 +132,8 @@ export default function displayTasks(list) {
             descSection.classList.add("short-desc");
         })
 
-        descSection.textContent = `${task.desc}`;
-        if (task.urgency === "true") {
+        descSection.textContent = `${task._desc}`;
+        if (task._urgency === "true") {
             itemData.classList.add("urgent");
         }
         itemData.appendChild(descSection);

@@ -44,7 +44,7 @@ deleteButton.addEventListener("click", () => {
         console.log(`Default was clicked!`);
         console.log(`Value: ${value}`);
         displayTasks(domTest);
-        // createTaskButton.style.display = "block";
+        createTaskButton.style.display = "none";
     });
     
     displayTasks(domTest);

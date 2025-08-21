@@ -183,7 +183,7 @@ submitTaskButton.addEventListener("click", () => {
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
 
-    if (currentList.data === null) {
+    if (currentList._data === null) {
         currentList = projectArray[0];
     }
 
@@ -194,6 +194,7 @@ submitTaskButton.addEventListener("click", () => {
     
     console.log(`${currentList.name}`);
 
+    closeTaskModalButton.click();
     resetTaskButton.click();
 })
 

@@ -29,6 +29,7 @@ else {
 
 wipeButton.addEventListener("click", () => {
     localStorage.clear();
+    console.log("Data wiped!");
 })
 
 
