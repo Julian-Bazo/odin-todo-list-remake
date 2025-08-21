@@ -9,6 +9,7 @@ import { projectArray } from "./modal.js";
 import createDefaultList from "./createDefault.js";
 import saveData from "./saveData.js";
 import loadData from "./loadData.js";
+import { wipeButton } from "./wipeData.js";
 
 
 let data = JSON.parse(localStorage.getItem("Array"));
@@ -25,7 +26,11 @@ else {
     createDefaultList();
 }
 })
-// localStorage.clear();
+
+wipeButton.addEventListener("click", () => {
+    localStorage.clear();
+})
+
 
 // Reminder on setters and getters
 // const sampleTask = new Task("Tutorial");
@@ -38,6 +43,4 @@ else {
 // Test local memory plugin
 // Test webkit development to production swap
 
-// Remove extra instance of Default on sidebar
-    // Somehow spawning in before any function is called
 // Get tasks to not be undefined when clicked
