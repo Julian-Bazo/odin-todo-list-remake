@@ -7,7 +7,6 @@ import loadData from "./loadData.js";
 import { wipeButton } from "./wipeData.js";
 
 let data = JSON.parse(localStorage.getItem("Array"));
-console.log(data.length);
 window.addEventListener("beforeunload", (e) => {
     saveData();
 });
