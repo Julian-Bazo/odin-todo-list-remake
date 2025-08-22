@@ -13,7 +13,7 @@ window.addEventListener("beforeunload", (e) => {
 });
 
 window.addEventListener("load", (e) => {
-if ((data.length > 1)){
+if ((data.length >= 1)){
     loadData();
 }
 else {
