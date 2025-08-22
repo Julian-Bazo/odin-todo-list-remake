@@ -1,6 +1,5 @@
 import displayTasks from "./displayTasks";
 import List from "./list";
-import Task from "./task";
 import clearContent from "./clearContent";
 import { format } from "date-fns";
 

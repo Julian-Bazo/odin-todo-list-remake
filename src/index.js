@@ -37,9 +37,4 @@ wipeButton.addEventListener("click", () => {
 
 // List name bolded when selected
 // Beautify App
-// Test local memory plugin
 // Test webkit development to production swap
-
-// Wipe data removes updates saveData to reflect emptied localstorage
-// Ability to remove lists and they do not repopulate on reload
-// What happens when all the lists are removed
