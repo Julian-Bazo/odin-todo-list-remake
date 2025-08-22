@@ -1,11 +1,6 @@
 import "./styles.css";
-import { formatDate } from "date-fns";
-import Task from "./task.js";
-import List from "./list.js";
 import "./modal.js";
-import { list, createTaskButton,  inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData} from "./modal.js";
-import displayTasks from "./displayTasks.js";
-import { projectArray } from "./modal.js";
+import {clearProjectArray} from "./modal.js";
 import createDefaultList from "./createDefault.js";
 import saveData from "./saveData.js";
 import loadData from "./loadData.js";
@@ -28,6 +23,8 @@ else {
 
 wipeButton.addEventListener("click", () => {
     localStorage.clear();
+    clearProjectArray();
+    location.reload();
     console.log("Data wiped!");
 })
 
@@ -43,5 +40,6 @@ wipeButton.addEventListener("click", () => {
 // Test local memory plugin
 // Test webkit development to production swap
 
-// Make it so currentList stays at a list item after refresh
-// Make is so that every title element doesnt wipe on two refreshes.
+// Wipe data removes updates saveData to reflect emptied localstorage
+// Ability to remove lists and they do not repopulate on reload
+// What happens when all the lists are removed

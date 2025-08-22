@@ -20,6 +20,7 @@ export default function createTitle(list) {
 
     const deleteButton = document.createElement("div");
         deleteButton.classList.add("delete-button");
+        deleteButton.id = `${list.name}`;
         wholeItem.appendChild(deleteButton);
 
     newProj.addEventListener("click", () => {
@@ -33,9 +34,24 @@ export default function createTitle(list) {
         const index = projectArray.findIndex(item => item.name === list.name);
     
         setCurrentList(projectArray[index]);
-        console.log(setCurrentList(projectArray[index]));
         console.log(currentList);
 
         displayTasks(currentList);
     })
+
+    wholeItem.addEventListener("click", () => {
+        const index = projectArray.findIndex(item => item.name === list.name);
+        setCurrentList(projectArray[index]);
+    })
+
+    deleteButton.addEventListener("click", () => {
+        console.log(projectArray);
+        const index = projectArray.findIndex(item => item.name === list.name);
+        console.log(projectArray[index]);
+        projectArray.splice(index, 1);
+        sidebar.removeChild(wholeItem);
+        console.log(projectArray);
+    })
+
+
 }

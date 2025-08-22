@@ -64,6 +64,10 @@ inputListForm.appendChild(resetListButton);
 let titleData;
 let projectArray = [];
 
+function clearProjectArray() {
+    projectArray = [];
+}
+
 let currentList = projectArray[0];
 function setCurrentList(i) {
     currentList = i;
@@ -209,4 +213,4 @@ closeListModalButton.addEventListener("click", () => {
     listModal.style.display = "none";
 })
 
-export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list, sidebar, projectArray, currentList, setCurrentList};
+export {createTaskButton, clearProjectArray, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list, sidebar, projectArray, currentList, setCurrentList};
