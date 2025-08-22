@@ -63,7 +63,11 @@ inputListForm.appendChild(resetListButton);
 
 let titleData;
 let projectArray = [];
+
 let currentList = projectArray[0];
+function setCurrentList(i) {
+    currentList = i;
+}; 
 
 
 submitListButton.addEventListener("click", () => {
@@ -171,23 +175,21 @@ let urgencyData;
 
 submitTaskButton.addEventListener("click", () => {
     nameData = nameInput.value;
-    // dateData = dateInput.value;
-    // dateData = dateData.slice(5);
+
     if (dateInput.value !== "" && dateInput.value !== "Anytime") {
         dateData = format(new Date(dateInput.value), "MM/dd");
     }
     else {
         dateData = "Anytime";
     }
-    console.log(dateData);
     descData = descInput.value;
     urgencyData = urgencyInput.checked;
 
-    if (currentList._data === null) {
-        currentList = projectArray[0];
+    if (currentList.data === null) {
+        setCurrentList(projectArray[0]);
     }
 
-
+    console.log(currentList);
     currentList.addTask(`${nameData}`, `${dateData}`, `${descData}`, `${urgencyData}`);
 
     displayTasks(currentList);
@@ -207,4 +209,4 @@ closeListModalButton.addEventListener("click", () => {
     listModal.style.display = "none";
 })
 
-export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list, sidebar, projectArray, currentList};
+export {createTaskButton, inputTitle, nameInput, dateInput, descInput, urgencyInput, titleData, nameData, dateData, descData, urgencyData, list, sidebar, projectArray, currentList, setCurrentList};

@@ -1,16 +1,20 @@
 import displayTasks from "./displayTasks";
 import { sidebar } from "./modal";
-import { createTaskButton } from "./modal";
+import { createTaskButton, setCurrentList, currentList } from "./modal";
+import { projectArray } from "./modal";
 
 export default function createTitle(list) {
+    let workingArray = JSON.parse(localStorage.getItem("Array"));
+    
+    setCurrentList(projectArray[0]);
+    displayTasks(currentList);
+    
     const wholeItem = document.createElement('div');
         wholeItem.classList.add("sidebar-item");
         sidebar.appendChild(wholeItem);
 
     const newProj = document.createElement("div");
         newProj.textContent = list.name;
-        console.log(list.name);
-        console.log(typeof list.name);
         newProj.classList.add("item-title");
         wholeItem.appendChild(newProj);
 
@@ -25,6 +29,13 @@ export default function createTitle(list) {
         if (list.name === "Default"){
             createTaskButton.style.display = "none";
         }
-        displayTasks(list)
+
+        const index = projectArray.findIndex(item => item.name === list.name);
+    
+        setCurrentList(projectArray[index]);
+        console.log(setCurrentList(projectArray[index]));
+        console.log(currentList);
+
+        displayTasks(currentList);
     })
 }

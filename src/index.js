@@ -11,7 +11,6 @@ import saveData from "./saveData.js";
 import loadData from "./loadData.js";
 import { wipeButton } from "./wipeData.js";
 
-
 let data = JSON.parse(localStorage.getItem("Array"));
 console.log(data.length);
 window.addEventListener("beforeunload", (e) => {
@@ -44,4 +43,5 @@ wipeButton.addEventListener("click", () => {
 // Test local memory plugin
 // Test webkit development to production swap
 
-// Get tasks to not be undefined when clicked
+// Make it so currentList stays at a list item after refresh
+// Make is so that every title element doesnt wipe on two refreshes.

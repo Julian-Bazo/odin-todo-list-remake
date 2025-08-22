@@ -10,10 +10,10 @@ export default function saveData() {
 
     for (const list of projectArray) {
         taskIndex = 0;
-        localStorage.setItem(`List ${listIndex}`, JSON.stringify(list));
+        localStorage.setItem(`L${listIndex}`, JSON.stringify(list));
         console.log(list);
         for (const task of list.data) {
-            localStorage.setItem(`List ${listIndex}, Task ${taskIndex}`, JSON.stringify(task));
+            localStorage.setItem(`L${listIndex}T${taskIndex}`, JSON.stringify(task));
             taskIndex++;
         }
         listIndex++;
